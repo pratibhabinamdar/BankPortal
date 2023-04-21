@@ -5,4 +5,24 @@
   <br>
   <a href="/transfer">Transfer</a>
 </div>
+<div class="container">
+  <h1>Account Summary</h1>
+  
+  <div class="account-summary">
+    <h2>Savings Account</h2>
+    <% include('summary', { account: accounts.savings }) %>
+  </div>
+
+  <div class="account-summary">
+    <h2>Checking Account</h2>
+    <% include('summary', { account: accounts.checking }) %>
+  </div>
+
+  <div class="account-summary">
+    <h2>Credit Account</h2>
+    <% include('partials/account-summary', { account: accounts.credit }) %>
+  </div>
+
+</div>
+
 <%- include('footer') %>
