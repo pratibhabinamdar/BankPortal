@@ -1,8 +1,6 @@
 <%- include('header'); %>
-<div class="container">
-  <h3>Transactions</h3>
-  <%- include '/transactions' %>
-</div>
+
+  <%- include('transactions', { account: account }) %>
 
   <% if (account.unique_name == 'credit' && account.balance > 0) { %>
     <br><a href="/payment">Make a Payment</a>
