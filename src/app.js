@@ -5,7 +5,6 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
-const fs = require('fs');
 
 // Read user data from JSON file
 const userData = fs.readFileSync('src/json/users.json', 'utf8');
@@ -17,16 +16,16 @@ const users = JSON.parse(userData);
 const accountData = fs.readFileSync('src/json/accounts.json', {
   encoding: 'utf8',
 });
-app.get('/profile', (req, res) => {
-  res.render('profile', { user: users[0] });
+app.get('profiles', (req, res) => {
+  res.render('profiles', { user: users[0] });
 });
 
-app.get('/checking', function (req, res) {
+app.get('checking', function (req, res) {
   const checkingData = accounts.checking;
   res.render('account', { account: checkingData });
 });
 
-app.get('/credit', function (req, res) {
+app.get('credit', function (req, res) {
   const creditAccountData = accounts.credit;
   res.render('account', { account: creditAccountData });
 });
